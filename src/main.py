@@ -7,6 +7,10 @@ app = Flask(__name__)
 bounding_box = BoundingBox()
 tracker = Tracker()
 
+@app.route("/")
+def basic_route():
+    return "API working"
+
 @app.route("/set-bound", methods = ["POST"])
 def set_boundaries():
     body = request.json
@@ -22,7 +26,7 @@ def reset_tracker():
     tracker.data = []
     return "Tracker reseted"
     
-@app.route("/new-tracker", methods = ["GET"])
+@app.route("/new-data", methods = ["GET"])
 def new_tracker():
     if(not bounding_box.isOk()):
         return "Define a bounding box first"
