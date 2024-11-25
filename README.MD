@@ -36,11 +36,11 @@ API criada utilizando python e flask para gerar dados falsos a serem usados para
     Obs: Cada atributo e gerado aletoriamente, embora alguns sigam alguns padroes para que se assemelhe aos possiveis dados gerados pelos sensores.
 
 
-## Instalacao
+## Install
 
 Para executar este projeto, basta ter baixado esse repositorio, e ter o docker + docker-compose instalado em sua maquina
 
-## Execution
+## Exec
 
 Para executar o projeto, recomendo utilizar o comando: 
 
