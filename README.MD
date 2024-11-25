@@ -10,6 +10,16 @@ API criada utilizando python e flask para gerar dados falsos a serem usados para
 
 - **/set-bound** -> Define uma area por meio de 4 pontos (latitude e longitude), para configurar em qual area o endpoint "**/new-data**" deve gerar suas posicoes. 
 
+  Exemplo (cada atributo eh um ponto para formar a bounding box): 
+  ```
+  {
+	"first": [1,1],
+	"second": [2,2],
+	"third": [3,3],
+	"fourth": [4,4]
+  }
+  ```
+
 
 - **/reset-tracker** -> Sempre ao gerar um novo valor, "**/new-data**" ira somar um valor aleatorio ao atributo distance, oque pode nao ser util para gerar dados de varios atletas, portanto, utilizar essa rota ira resetar o atributo distance, permitindo uma forma de testar simular dados de varios atletas.
 
