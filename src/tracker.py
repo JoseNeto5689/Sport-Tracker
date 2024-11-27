@@ -1,7 +1,7 @@
 from typing import List
 from utils import random_float
 from random import randrange as random_int
-from bounding_box import BoundingBox, Vector2
+from bounding_box import BoundingBox
 from datetime import datetime
 
 class TrackerData():
@@ -25,8 +25,8 @@ class Tracker():
         
     def generateNewTrackerData(self, bounding_box: BoundingBox):
         bpm = random_int(70, 100)
-        lat = random_int(bounding_box.getMinLat(), bounding_box.getMaxLat())
-        log = random_int(bounding_box.getMinLog(), bounding_box.getMaxLog())
+        lat = random_float(bounding_box.getMinLat(), bounding_box.getMaxLat())
+        log = random_float(bounding_box.getMinLog(), bounding_box.getMaxLog())
         speed = random_float(0, 45)
         time = datetime.now()
         distance = 0
