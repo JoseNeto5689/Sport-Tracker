@@ -1,16 +1,21 @@
 from flask import Flask
-from bounding_box import *
+from flask_cors import CORS, cross_origin
 from flask import request
+from bounding_box import *
 from tracker import Tracker
 
 app = Flask(__name__)
+cors = CORS(app) # allow CORS for all domains on all routes.
+app.config['CORS_HEADERS'] = 'Content-Type'
 bounding_box = BoundingBox()
 tracker = Tracker()
 
+@cross_origin()
 @app.route("/")
 def basic_route():
     return "API working"
 
+@cross_origin()
 @app.route("/set-bound", methods = ["POST"])
 def set_boundaries():
     body = request.json
@@ -20,12 +25,13 @@ def set_boundaries():
     bounding_box.fourth_point = listToVector2(body["fourth"])
     return "Bounding Box defined"
 
-
+@cross_origin()
 @app.route("/reset-tracker", methods = ["POST"])
 def reset_tracker():
     tracker.data = []
     return "Tracker reseted"
-    
+
+@cross_origin()
 @app.route("/new-data", methods = ["GET"])
 def new_tracker():
     if(not bounding_box.isOk()):
